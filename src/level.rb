@@ -6,13 +6,14 @@ class Level < GameState
     super
     
     @secret_letters = [:c,:h,:u,:n,:k,:y,:b,:a,:c,:o,:n]
-    self.input = { :escape => :exit, :e => :edit, [:c,:h,:u,:n,:k,:y,:b,:a,:o] => :chunky_bacon }
+    self.input = { :escape => :exit, [:c,:h,:u,:n,:k,:y,:b,:a,:o] => :chunky_bacon }
+    #self.input[:e] = :edit
     self.viewport.game_area = [0, 0, 11000, 250]
     
     @file = File.join(ROOT, "level1.yml")
     load_game_objects(:file => @file)
     
-    @player = Player.create(:x => 40, :y => 200)
+    @player = Player.create(:x => 8240, :y => 200)
     @grid = [16, 16]
     self.viewport.lag = 0.95
   end
@@ -53,18 +54,13 @@ class Level < GameState
   end
   
   def chunky_bacon    
-    remove = @secret_letters.each do |letter|
-      if holding?(letter)
-        if block = Block.all.select { |b| b.alpha == 190 }.first
-          block.destroy
-          @game_object_map.clear_game_object(block)
-        end
-        break letter
+    if holding?(@secret_letters.first)
+      if block = Block.all.select { |b| b.alpha == 190 }.first
+        block.destroy
+        Sound["chunky.wav"].play(0.4)
+        @game_object_map.clear_game_object(block)
       end
-    end
-    
-    if index = @secret_letters.index(remove)
-      @secret_letters.delete_at(index)
+      @secret_letters.delete_at(0)
     end
   end
 
@@ -115,7 +111,7 @@ class Outro < GameState
   def update
     super 
     [@outro1, @outro2, @outro3].each { |outro| outro.y += @scroll; outro.alpha += @alpha }
-    $window.caption = "\"hexediting _why back to reality\". Made by ippa [ http://ippa.se/gaming + http://rubylicio.us/]."
+    $window.caption = "\"hexediting _why back to reality\". Made by ippa [ http://ippa.se/gaming + http://rubylicio.us/ ]."
     
   end
   
