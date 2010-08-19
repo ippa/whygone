@@ -1,2 +1,2 @@
-ocra start_game.rb --console media/* src/* ./*
+ocra start_game.rb --windows media/* src/* ./*
 

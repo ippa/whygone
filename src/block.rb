@@ -12,13 +12,14 @@ class Block < GameObject
 end
 
 class Camping < GameObject
-  traits :velocity, :collision_detection
+  traits :velocity, :collision_detection, :timer
   trait :bounding_box, :scale => 0.80
   
   def setup
     @image = Image["#{self.filename}.png"]
     self.velocity_y = 1.5
     self.zorder = 1
+    after(5000) { destroy }
   end
   
   def hit_by(object)

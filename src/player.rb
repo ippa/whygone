@@ -47,8 +47,6 @@ class Player < Chingu::GameObject
     else
       @camping_count = 0
     end
-    
-    #p "Got #{object.class}, @camping_count = #{@camping_count}"
   end
   
   def die

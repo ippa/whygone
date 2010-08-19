@@ -50,7 +50,6 @@ class Level < GameState
     end
         
     $window.caption = "Whygone? A digital ode to _why on whyday 2010. http://ippa.se/gaming. [#{@player.x}/#{@player.y}]"
-    game_objects.select { |o| o.y > 400 }.each { |o| o.destroy }
   end
   
   def chunky_bacon    
@@ -79,9 +78,9 @@ class Level < GameState
   def start_camping
     every(2000, :name => :campign) do
       case rand(3)
-        when 0 then Camping1.create(:x => 1700-rand(200), :y => 0)
-        when 1 then Camping2.create(:x => 1700-rand(200), :y => 0)
-        when 2 then Camping3.create(:x => 1700-rand(200), :y => 0)
+        when 0 then Camping1.create(:x => 1700-rand(300), :y => 0)
+        when 1 then Camping2.create(:x => 1700-rand(300), :y => 0)
+        when 2 then Camping3.create(:x => 1700-rand(300), :y => 0)
       end
     end
   end
@@ -116,7 +115,7 @@ class Outro < GameState
   def update
     super 
     [@outro1, @outro2, @outro3].each { |outro| outro.y += @scroll; outro.alpha += @alpha }
-    $window.caption = "\"hexediting _why back to reality\""
+    $window.caption = "\"hexediting _why back to reality\". Made by ippa [ http://ippa.se/gaming + http://rubylicio.us/]."
     
   end
   
