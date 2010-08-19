@@ -1,0 +1,10 @@
+= Whygone
+
+A melancolic story/game for whyday 2010. You are missed.
+
+== CONTROLS
+  Arrows-keys
+
+== How
+Made with Ruby, http://libgosu.org & http://ippa.se/chingu
+
