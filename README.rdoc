@@ -1,10 +1,15 @@
 = Whygone
 
-A melancolic story/game for whyday 2010. You are missed.
+ A digital ode to _why on whyday 2010
 
 == CONTROLS
   Arrows-keys
 
-== How
+== RUN FROM SOURCE
+$ gem install chingu
+$ ruby start_game.rb
+
+== HOW
 Made with Ruby, http://libgosu.org & http://ippa.se/chingu
+
 
