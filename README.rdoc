@@ -9,6 +9,9 @@
 $ gem install chingu
 $ ruby start_game.rb
 
+== WINDOWS EXECUTABLE
+http://ippa.se/games/whygone.exe
+
 == HOW
 Made with Ruby, http://libgosu.org & http://ippa.se/chingu
 

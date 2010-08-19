@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-require File.join(File.dirname($0), "../", "chingu", "lib", "chingu")
-#require 'chingu'
+require 'chingu'
 include Gosu
 include Chingu
 
 require_rel 'src/*'
 DEBUG = false
+ENV['PATH'] = File.join(ROOT) + ";" + ENV['PATH'] # so ocra finds fmod.dll
 
 class Game < Chingu::Window 
   def initialize

@@ -8,7 +8,9 @@ class Level < GameState
     @secret_letters = [:c,:h,:u,:n,:k,:y,:b,:a,:c,:o,:n]
     self.input = { :escape => :exit, :e => :edit, [:c,:h,:u,:n,:k,:y,:b,:a,:o] => :chunky_bacon }
     self.viewport.game_area = [0, 0, 11000, 250]
-    load_game_objects
+    
+    @file = File.join(ROOT, "level1.yml")
+    load_game_objects(:file => @file)
     
     @player = Player.create(:x => 40, :y => 200)
     @grid = [16, 16]
@@ -20,7 +22,7 @@ class Level < GameState
   end
   
   def edit
-    push_game_state GameStates::Edit.new(:grid => @grid, :except => [Player])
+    push_game_state GameStates::Edit.new(:grid => @grid, :except => [Player], :file => @file)
   end
   
   def draw
