@@ -10,10 +10,10 @@
   $ gem install chingu
   $ ruby start_game.rb
 
-== REPORTED PROBLEMS / CRASHED
-  Some linuxsystems crashed with "Error reading from datastream (RuntimeError)" due to a certain WAV-file, it has been removed, get the latest source from this repo!
+== REPORTED PROBLEMS / CRASHES
+Some linuxsystems crashed with "Error reading from datastream (RuntimeError)" due to a certain WAV-file, it has been removed, get the latest source from this repo!
 
-  Other reported crashed on certain keys, it was due to Chingu 0.7.7, please "gem update" to get Chingu 0.7.7.1
+Other reported crashes on certain keys, it was due to Chingu 0.7.7, please "gem update" to get Chingu 0.7.7.1
 
 == WINDOWS EXECUTABLE
 http://ippa.se/games/whygone.exe
