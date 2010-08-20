@@ -15,6 +15,10 @@ Some linuxsystems crashed with "Error reading from datastream (RuntimeError)" du
 
 Other reported crashes on certain keys, it was due to Chingu 0.7.7, please "gem update" to get Chingu 0.7.7.1
 
+I'm still looking into this crash:
+"input_client.rb:111:in `validate_input_key': No such input as :holding_left (ArgumentError)"
+Seems to affect 1.8.7 installs. Will most likely solve it with Chingu 0.7.7.2.
+
 == WINDOWS EXECUTABLE
 http://ippa.se/games/whygone.exe
 

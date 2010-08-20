@@ -93,9 +93,9 @@ class Outro < GameState
     Song["Chap2-ThisBookIsMadeofRabbitsAndLemonade.ogg"].play
     
     ## Since GOSU only supporst 1024 x 1024 pixels we need to chop this up
-    @outro1 = GameObject.create(:image => "outro1.png", :x => $window.width/2, :y => 0, :rotation_center => :top_center)
-    @outro2 = GameObject.create(:image => "outro2.png", :x => $window.width/2, :y => @outro1.height, :rotation_center => :top_center)
-    @outro3 = GameObject.create(:image => "outro3.png",  :x => $window.width/2, :y => @outro1.height + @outro2.height, :rotation_center => :top_center)
+    @outro1 = GameObject.create(:image => Image["outro1.png"], :x => $window.width/2, :y => 0, :rotation_center => :top_center)
+    @outro2 = GameObject.create(:image => Image["outro2.png"], :x => $window.width/2, :y => @outro1.height, :rotation_center => :top_center)
+    @outro3 = GameObject.create(:image => Image["outro3.png"],  :x => $window.width/2, :y => @outro1.height + @outro2.height, :rotation_center => :top_center)
     
     @scroll = 0
     @alpha = 0
