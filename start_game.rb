@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'rubygems'
+require 'rubygems' rescue nil
 require 'chingu'
 include Gosu
 include Chingu

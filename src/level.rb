@@ -13,7 +13,7 @@ class Level < GameState
     @file = File.join(ROOT, "level1.yml")
     load_game_objects(:file => @file)
     
-    @player = Player.create(:x => 8240, :y => 200)
+    @player = Player.create(:x => 40, :y => 200)
     @grid = [16, 16]
     self.viewport.lag = 0.95
   end
