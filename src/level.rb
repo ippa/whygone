@@ -8,7 +8,7 @@ class Level < GameState
     @secret_letters = [:c,:h,:u,:n,:k,:y,:b,:a,:c,:o,:n]
     self.input = { :escape => :exit, [:c,:h,:u,:n,:k,:y,:b,:a,:o] => :chunky_bacon }
 
-    self.viewport.game_area = [0, 0, 11000, 250]
+    self.viewport.game_area = [0, 0, 12000, 250]
     
     @file = File.join(ROOT, "level1.yml")
     load_game_objects(:file => @file)
@@ -35,7 +35,7 @@ class Level < GameState
     super
     self.viewport.x = @player.x - $window.width/2   
     start_camping           if @player.x == 1716
-    push_game_state(Outro)  if @player.x == 10948
+    push_game_state(Outro)  if @player.y > 250
     
     @player.each_collision(Camping) do |player, camping|
       player.hit_by(camping)
@@ -50,7 +50,7 @@ class Level < GameState
       end
     end
         
-    $window.caption = "Whygone? A digital ode to _why on whyday 2010. http://ippa.se/gaming. [#{@player.x}/#{@player.y}]"
+    $window.caption = "Whygone? A digital ode to _why on whyday 2010. http://ippa.se/gaming. Move with ARROW-KEYS! [#{@player.x}/#{@player.y}]"
   end
   
   def chunky_bacon    
