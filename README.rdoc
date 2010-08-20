@@ -6,8 +6,8 @@
   Arrows-keys
 
 == RUN FROM SOURCE
-$ gem install chingu
-$ ruby start_game.rb
+  $ gem install chingu
+  $ ruby start_game.rb
 
 == WINDOWS EXECUTABLE
 http://ippa.se/games/whygone.exe
