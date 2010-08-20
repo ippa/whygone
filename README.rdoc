@@ -7,17 +7,16 @@
 
 == RUN FROM SOURCE
   $ gem install gosu
-  $ gem install chingu
+  $ gem install chingu   (you need 0.7.7.3+)
   $ ruby start_game.rb
 
 == REPORTED PROBLEMS / CRASHES
-Some linuxsystems crashed with "Error reading from datastream (RuntimeError)" due to a certain WAV-file, it has been removed, get the latest source from this repo!
+Some linuxsystems crashed with "Error reading from datastream (RuntimeError)" due to a certain WAV-file.
+Get the latest source from this repo!
 
-Other reported crashes on certain keys, it was due to Chingu 0.7.7, please "gem update" to get Chingu 0.7.7.1
+"input_client.rb:111:in `validate_input_key': No such input as :holding_left (ArgumentError)" and other errors involving "input".
+Seems to affect 1.8.7 installs. Update to Chingu 0.7.7.3
 
-I'm still looking into this crash:
-"input_client.rb:111:in `validate_input_key': No such input as :holding_left (ArgumentError)"
-Seems to affect 1.8.7 installs. Will most likely solve it with Chingu 0.7.7.2.
 
 == WINDOWS EXECUTABLE
 http://ippa.se/games/whygone.exe
@@ -27,6 +26,7 @@ http://ippa.se/games/whygone.exe
 Made with Ruby, http://libgosu.org & http://ippa.se/chingu
 
 == TESTING AND BUGREPORTS (thanks!)
+steveklabnik - http://steveklabnik.com/
 dominikh - http://github.com/dominikh
 zzak - http://github.com/zacharyscott
 
