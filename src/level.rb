@@ -55,7 +55,7 @@ class Level < GameState
   
   def chunky_bacon    
     if holding?(@secret_letters.first)
-      if block = Block.all.select { |b| b.alpha == 190 }.first
+      if block = Block.all.find { |b| b.alpha == 190 }
         block.destroy
         Sound["chunky.wav"].play(0.4)
         @game_object_map.clear_game_object(block)
