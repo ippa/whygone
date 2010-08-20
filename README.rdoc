@@ -9,8 +9,11 @@
   $ gem install chingu
   $ ruby start_game.rb
 
+Only tested on Ruby 1.9.1, there might a problem with 1.8.7 which I'm looking into.
+
 == WINDOWS EXECUTABLE
 http://ippa.se/games/whygone.exe
+
 
 == HOW
 Made with Ruby, http://libgosu.org & http://ippa.se/chingu
