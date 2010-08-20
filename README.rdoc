@@ -18,4 +18,6 @@ http://ippa.se/games/whygone.exe
 == HOW
 Made with Ruby, http://libgosu.org & http://ippa.se/chingu
 
+== TESTING AND BUGREPORTS (thanks!)
+zzak - http://github.com/zacharyscott
 

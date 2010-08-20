@@ -15,7 +15,7 @@ class Game < Chingu::Window
   
   def setup
     retrofy
-    Sound["camping.wav"]    # lame cache line
+    # Sound["camping.wav"]    # lame cache line
     push_game_state(Level1)
   end    
 end

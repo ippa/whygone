@@ -23,7 +23,7 @@ class Camping < GameObject
   end
   
   def hit_by(object)
-    Sound["camping.wav"].play(0.3)
+    # Sound["camping.wav"].play(0.3)
     destroy
   end
     
