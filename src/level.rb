@@ -7,6 +7,7 @@ class Level < GameState
     
     @secret_letters = [:c,:h,:u,:n,:k,:y,:b,:a,:c,:o,:n]
     self.input = { :escape => :exit, [:c,:h,:u,:n,:k,:y,:b,:a,:o] => :chunky_bacon }
+    on_input(:e, :edit)
 
     self.viewport.game_area = [0, 0, 12000, 250]
     

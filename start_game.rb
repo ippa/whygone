@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
 require 'rubygems' rescue nil
-require 'chingu'
+begin
+  raise LoadError if defined?(Ocra)
+  require '../chingu/lib/chingu'
+rescue LoadError
+  require 'chingu'
+end
 include Gosu
 include Chingu
 
@@ -14,10 +19,9 @@ class Game < Chingu::Window
   end
   
   def setup
-    retrofy
-    # Sound["camping.wav"]    # lame cache line
+    self.retrofy
     push_game_state(Level1)
-  end    
+  end  
 end
 
 Game.new.show

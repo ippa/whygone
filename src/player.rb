@@ -1,6 +1,6 @@
 class Player < Chingu::GameObject
   trait :bounding_box, :scale => 0.8, :debug => false
-  traits :timer, :collision_detection , :timer, :velocity
+  traits :collision_detection, :timer, :velocity
   
   attr_reader :camping_count
     
@@ -10,8 +10,7 @@ class Player < Chingu::GameObject
                     [:down, :s] => :down,
                     [:up, :w] => :jump,
                   }
-    
-    #@image = Image["rabbit.png"]
+                  
     @animation = Animation.new(:file => "rabbit.png", :size => [56,64])
     @image = @animation.first
     
@@ -26,11 +25,6 @@ class Player < Chingu::GameObject
     self.rotation_center = :bottom_center
     
     self.factor = 0.4
-  end
-  
-  def level_up
-    new_factor = self.factor + 3
-    between(1,500) { self.factor += 0.1 }.then { self.factor = new_factor }
   end
   
   def jumping
@@ -49,30 +43,10 @@ class Player < Chingu::GameObject
     end
   end
   
-  def die
-    self.collidable = false
-    @color = Color::RED
-    @died_at = [self.x, self.y]
-    between(1,600) { self.scale += 0.4; self.alpha -= 5; }.then { resurrect }
-    Sound["hurt.wav"].play(0.3)
-    self.velocity_y = -13
-  end
-  
   def down
     self.velocity_y = 4
   end
-    
-  def resurrect
-    self.x, self.y = @died_at
-    self.velocity_x = 0
-    self.velocity_y = 0    
-    self.alpha = 255
-    self.factor = 3
-    self.collidable = true
-    @color = Color::WHITE
-    game_state.restore_player_position
-  end
-
+  
   def holding_left
     move(-@speed, 0)
   end
@@ -94,20 +68,13 @@ class Player < Chingu::GameObject
   def move(x,y)
     self.factor_x = self.factor_x.abs   if x > 0
     self.factor_x = -self.factor_x.abs  if x < 0
-    
-    self.x += x
-    if game_state.game_object_map.from_game_object(self)
-      self.x = previous_x   
-      self.velocity_x = 0
-    end
     @image = @animation.next  if @animation
     
-    self.y += y
-  end
+    self.x += x
+    self.x = previous_x if game_state.game_object_map.from_game_object(self)
     
-  def update    
+    self.y += y
     if block = game_state.game_object_map.from_game_object(self)
-      
       if self.velocity_y < 0
         self.y = block.bb.bottom + self.height
       else
@@ -115,7 +82,6 @@ class Player < Chingu::GameObject
         land
       end
       self.velocity_y = 0
-      self.velocity_x = 0
     end
   end
 end
